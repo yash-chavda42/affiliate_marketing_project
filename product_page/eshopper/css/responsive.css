@@ -141,11 +141,11 @@
     }
     .header_top .col-sm-6:first-child {
         display: inline-block;
-        float: left;
+        
     }
     .header_top .col-sm-6:last-child {
         display: inline-block;
-        float: right;
+        
     }
     .header-middle .col-sm-4 {
         display: inline-block;
