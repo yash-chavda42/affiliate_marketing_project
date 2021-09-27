@@ -37,27 +37,17 @@
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form">
 				<span class="login100-form-title p-b-37">
-					Sign In
+					Forgot Password
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
 					<input class="input100" type="email" name="username" placeholder="E-Mail Address">
 					<span class="focus-input100"></span>
 				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
-					<span class="focus-input100"></span>
-				</div>
-				
-				<div class="text-left">
-					<a href="forgotpasswd.html" class="txt2 hov1">
-						Forgot Password
-					</a><br/><br/>
-				</div>
-				<div class="container-login100-form-btn">
+				<br/>
+                <div class="container-login100-form-btn">
 					<button class="login100-form-btn">
-						Sign In
+						Send
 					</button>
 				</div>
 				<!--
@@ -76,12 +66,12 @@
 						<img src="images/icons/icon-google.png" alt="GOOGLE">
 					</a>
 				</div>
-			--> <br/><br/>
+			--><br/><br/>
 				<div class="text-left">
-					<a href="signup.html" class="txt2 hov1">
-						Create account
+					<a href="signin.php" class="txt2 hov1">
+						Sign in now
 					</a>
-				</div>
+				</div> 
 			</form>
 
 			

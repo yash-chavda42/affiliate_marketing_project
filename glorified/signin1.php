@@ -51,7 +51,7 @@
 				</div>
 				
 				<div class="text-left">
-					<a href="forgotpasswd.html" class="txt2 hov1">
+					<a href="forgotpasswd.php" class="txt2 hov1">
 						Forgot Password
 					</a><br/><br/>
 				</div>
@@ -78,7 +78,7 @@
 				</div>
 			--> <br/><br/>
 				<div class="text-left">
-					<a href="signup.html" class="txt2 hov1">
+					<a href="signup.php" class="txt2 hov1">
 						Create account
 					</a>
 				</div>

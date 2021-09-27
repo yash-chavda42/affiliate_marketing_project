@@ -53,7 +53,7 @@ body {
 :root {
 	--thm-font: 'Poppins', sans-serif;
 	--thm-base: #df247b;
-	--thm-color: #12b07f;
+	--thm-color: #FE980F;
 	--thm-black: #222222;
 	--thm-white: #ffffff;
 	--thm-eee: #eeeeee;
@@ -3026,7 +3026,7 @@ END BLOG DETAILS DESIGN
 	position: absolute;
 	left: 14px;
 	top: 33px;
-	background: var(--color_3);
+	background: var(--thm-color);
 	width: 50px;
 	height: 3px;
 }
