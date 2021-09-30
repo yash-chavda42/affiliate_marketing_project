@@ -380,9 +380,9 @@
 						
 						<div class="col-xl-6 col-lg-6 col-12 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">	
 							<div class="atf-mailchamp-subscribe">
-								<form class="form-group" id="mc-form">
-									<input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required="required">
-									<button type="submit" id="subscribe-button" class="btn"><i class="fas fa-envelope"></i></button>
+								<form class="form-group" id="mc-form" >
+									<input type="email" name="email2" class="form-control" id="email" placeholder="Your Email" required="required">
+									<button type="submit" id="subscribe-button" class="btn" name="touch"><i class="fas fa-envelope"></i></button>
 										<!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
 										<br>
 										<label class="atf-subscription-label" for="email"></label>
