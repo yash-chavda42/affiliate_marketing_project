@@ -6,12 +6,19 @@
         $l_name=$_POST['r_lastname'];
         $email=$_POST['r_email'];
 		$password=md5($_POST['r_password']);
-        $q = mysqli_query($con,"insert into signup_table(u_fname,u_lname,u_email,u_password) VALUES 
-		('{$f_name}','{$l_name}','{$email}','{$password}')") or die(mysqli_error($con));
-        
-		if($q){
-            echo "<script>alert('User Registered Successfully');</script>";
-        }
+		$result = mysqli_query($con,"select * from signup_table where u_email='{$email}'") or die(mysqli_error($con));
+		$num_rows = mysqli_num_rows($result);
+		if($num_rows >= 1){
+			echo "<script>alert('email is already exist')</script>";
+		}else{
+			$q = mysqli_query($con,"insert into signup_table(u_fname,u_lname,u_email,u_password) VALUES 
+			('{$f_name}','{$l_name}','{$email}','{$password}')") or die(mysqli_error($con));
+			if($q){
+       		echo "<script>alert('User Registered Successfully');</script>";
+    		}
+		}
+		
+		
 		
     }
 ?>
@@ -19,6 +26,9 @@
 <html lang="en">
 <head>
 	<title>Login V9</title>
+	<?php
+	include "heading.html";
+	?>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,22 +68,22 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="r_firstname" placeholder="First Name">
+					<input class="input100" type="text" name="r_firstname" placeholder="First Name" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="text" name="r_lastname" placeholder="Last Name">
+					<input class="input100" type="text" name="r_lastname" placeholder="Last Name" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="email" name="r_email" placeholder="E-Mail Address">
+					<input class="input100" type="email" name="r_email" placeholder="E-Mail Address" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="r_password" placeholder="Password">
+					<input class="input100" type="password" name="r_password" placeholder="Password" required>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -100,7 +110,7 @@
 				</div>
 			--><br/><br/>
 				<div class="text-left">
-					<a href="signin.php" class="txt2 hov1">
+					<a href="signin1.php" class="txt2 hov1">
 						Sign in now
 					</a>
 				</div>
