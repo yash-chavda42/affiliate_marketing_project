@@ -1,4 +1,63 @@
+<?php
+include "config.php";
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+if(isset($_POST['submit']) && $_POST['txt1']){
+    $email = $_POST['txt1'];
+    $q = mysqli_query($con, 
+      "select * from signup_table where u_email='{$email}'" ) 
+      or die(mysqli_error($con));
+    $result = mysqli_fetch_array($q);    
+    if($result){
+
+        $pass = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz#$%@"), 0, 8);
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'demophp3@gmail.com';                     //SMTP username
+        $mail->Password   = 'demo123php3';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+        //Recipients
+        $mail->setFrom('demophp3@gmail.com', 'yn');
+        $mail->addAddress($email, 'yash');     //Add a recipient
+        
+
+            //Add attachments
+    
+        $pass2=md5($pass);
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'Here is the subject';
+        $mail->Body    = "hey user your new password is <b> $pass </b>";
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $q1 = mysqli_query($con, 
+        "update signup_table set u_password='{$pass2}' where u_email='{$email}'" ) 
+        or die(mysqli_error($con));
+
+        $mail->send();
+        echo "<script>alert('password is changed')</script>";
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }header("location:signin1.php");
+}
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,18 +94,18 @@
 
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action="" method="POST">
 				<span class="login100-form-title p-b-37">
 					Forgot Password
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="email" name="username" placeholder="E-Mail Address">
+					<input class="input100" type="email" name="txt1" placeholder="E-Mail Address">
 					<span class="focus-input100"></span>
 				</div>
 				<br/>
                 <div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" name="submit">
 						Send
 					</button>
 				</div>
@@ -68,7 +127,7 @@
 				</div>
 			--><br/><br/>
 				<div class="text-left">
-					<a href="signin.php" class="txt2 hov1">
+					<a href="signin1.php" class="txt2 hov1">
 						Sign in now
 					</a>
 				</div> 

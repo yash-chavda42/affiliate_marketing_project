@@ -1,8 +1,31 @@
-
+<?php
+	session_start();
+	include "config.php";
+       
+    if(isset($_POST['submit'])){
+        $email=$_POST['l_email'];
+		$password=md5($_POST['l_password']);
+		$result = mysqli_query($con,"select * from signup_table where u_email='{$email}' and u_password='{$password}'") 
+		or die(mysqli_error($con));
+		$num_rows = mysqli_num_rows($result);
+		$data = mysqli_fetch_array($result);
+		if($num_rows>0){
+			echo "<script>alert('Login Successfully')</script>";	
+			$_SESSION['id'] = $data['u_id'];
+			$_SESSION['email'] = $data['u_email'];
+          	header("location:main_page.php");	
+		}else{
+			echo "<script>alert('Login Failed')</script>";		
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V9</title>
+<?php
+	include "heading.html";
+	?>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +45,7 @@
 	<link rel="stylesheet" type="text/css" href="login_vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="login_vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
+<!--====================================== =========================================================-->
 	<link rel="stylesheet" type="text/css" href="login_vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="login_vendor/daterangepicker/daterangepicker.css">
@@ -35,28 +58,28 @@
 
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action="" method="POST">
 				<span class="login100-form-title p-b-37">
 					Sign In
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="email" name="username" placeholder="E-Mail Address">
+					<input class="input100" type="email" name="l_email" placeholder="E-Mail Address" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+					<input class="input100" type="password" name="l_password" placeholder="password" required>
 					<span class="focus-input100"></span>
 				</div>
 				
 				<div class="text-left">
-					<a href="forgotpasswd.php" class="txt2 hov1">
+					<a href="forgotpasswd1.php" class="txt2 hov1">
 						Forgot Password
 					</a><br/><br/>
 				</div>
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" name="submit">
 						Sign In
 					</button>
 				</div>
@@ -78,7 +101,7 @@
 				</div>
 			--> <br/><br/>
 				<div class="text-left">
-					<a href="signup.php" class="txt2 hov1">
+					<a href="signup1.php" class="txt2 hov1">
 						Create account
 					</a>
 				</div>
