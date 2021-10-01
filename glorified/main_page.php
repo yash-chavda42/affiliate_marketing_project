@@ -1,3 +1,74 @@
+<?php
+    session_start();
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
+
+	//Load Composer's autoloader
+	require 'vendor/autoload.php';
+
+	include "config.php";
+	if(isset($_POST['touch'])){
+        $email=$_POST['email2'];
+		$q1 = mysqli_query($con, "select * from signup_table where u_email='{$email}'" ) 
+    	or die(mysqli_error($con));
+	    $result1 = mysqli_fetch_array($q1);
+		$num_rows1 = mysqli_num_rows($q1);    
+    	if($result1){
+			//Create an instance; passing `true` enables exceptions
+			$mail = new PHPMailer(true);
+
+			try {
+				//Server settings
+				$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+				$mail->isSMTP();                                            //Send using SMTP
+				$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+				$mail->Username   = 'demophp3@gmail.com';                     //SMTP username
+				$mail->Password   = 'demo123php3';                               //SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+				$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+				//Recipients
+				$mail->setFrom('demophp3@gmail.com', 'yn');
+				$mail->addAddress($email, 'yash');     //Add a recipient
+				
+
+					//Add attachments
+				$q = mysqli_query($con, "select * from subscriber where u_email='{$email}'" ) 
+				or die(mysqli_error($con));
+				$result = mysqli_fetch_array($q);
+				$num_rows = mysqli_num_rows($q); 
+				
+				//Content
+				if($num_rows >= 1){
+					$mail->isHTML(true);                                  //Set email format to HTML
+					$mail->Subject = 'Here is the subject11111';
+					$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	
+				}else{
+					$mail->isHTML(true);                                  //Set email format to HTML
+					$mail->Subject = 'Here is the subject';
+					$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+					$q1 = mysqli_query($con,"insert into subscriber (u_email) VALUES 
+					('{$email}')") or die(mysqli_error($con));
+			
+
+				}
+				
+				$mail->send();
+				//echo 'Message has been sent';
+			} catch (Exception $e) {
+				echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+			}header("location:main_page.php");		
+    	}else{
+			header("location:signin1.php");
+		}
+
+	}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 	<head>
@@ -74,7 +145,7 @@
 									<ul>
 										<li><a class="search header-search" href="#"><i class="fa fa-search"></i></a></li>
 										<?php
-                                            session_start();
+                                            //session_start();
                                             if(isset($_SESSION['id'])){
                                                 echo "<li><a class='login-btn' href='logout.php')>Logout</a></li>";
                                             }else{
@@ -151,7 +222,15 @@
 													<p class="pr-lg-5">A Collection of variety of products ranging from different prices</p>
 													<!-- Main-btn -->
 													<div class="atf-main-btn mt-3"> 
-														<a href="product1.html" class="page-scroll atf-themes-btn mr-4">See Products<i class="fa fa-angle-right"></i></a>
+														<?php
+			                    	                        //session_start();
+            			            	                    if(isset($_SESSION['id'])){
+																echo "<a href='product1.html' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+                                            				}else{
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+                                            				}
+                                            			?>
+
 														<a href="#" class="page-scroll atf-themes-btn">Order Now <i class="fa fa-angle-right"></i></a>
 													</div>
 												</div><!--- END COL -->
@@ -377,16 +456,16 @@
 								<h2>Subcribe Today for Latest Offers</h2>
 							</div>
 						</div><!-- END COL -->
-						
-						<div class="col-xl-6 col-lg-6 col-12 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">	
+							<div class="col-xl-6 col-lg-6 col-12 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">	
 							<div class="atf-mailchamp-subscribe">
-								<form class="form-group" id="mc-form" >
-									<input type="email" name="email2" class="form-control" id="email" placeholder="Your Email" required="required">
-									<button type="submit" id="subscribe-button" class="btn" name="touch"><i class="fas fa-envelope"></i></button>
+								<form class="form-group" action="" method="POST">
+									<input type="email" name="email2" class="form-control"  placeholder="Your Email" required="required">
+									<button type="submit" class="btn" name="touch"><i class="fas fa-envelope" ></i></button>
 										<!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
 										<br>
-										<label class="atf-subscription-label" for="email"></label>
+										<label class="atf-subscription-label"    for="email"></label>
 								</form>
+								
 							</div>
 						</div><!-- END COL -->
 					</div><!-- END ROW -->
