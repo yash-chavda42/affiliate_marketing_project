@@ -43,14 +43,14 @@
 				//Content
 				if($num_rows >= 1){
 					$mail->isHTML(true);                                  //Set email format to HTML
-					$mail->Subject = 'Here is the subject11111';
-					$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+					$mail->Subject = 'Already Subscribed';
+					$mail->Body    = 'Hey User...<br>You have already subscribed YourStore for latest updates and offers';
 					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 	
 				}else{
 					$mail->isHTML(true);                                  //Set email format to HTML
-					$mail->Subject = 'Here is the subject';
-					$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+					$mail->Subject = 'For Latest Updates';
+					$mail->Body    = 'Hey User...<br>Thanks for subscribing YourStore. All the latest offers of different brands and updates will be provided through this mail.';
 					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 					$q1 = mysqli_query($con,"insert into subscriber (u_email) VALUES 
 					('{$email}')") or die(mysqli_error($con));

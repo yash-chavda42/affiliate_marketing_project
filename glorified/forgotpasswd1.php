@@ -42,8 +42,9 @@ if(isset($_POST['submit']) && $_POST['txt1']){
         $pass2=md5($pass);
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = "hey user your new password is <b> $pass </b>";
+        $mail->Subject = 'Reset Password';
+        $mail->Body    = "Hey user... <br>This is the mail regarding your request of generating new password.
+		<br>Your new password is :<b> $pass </b>";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $q1 = mysqli_query($con, 
         "update signup_table set u_password='{$pass2}' where u_email='{$email}'" ) 
