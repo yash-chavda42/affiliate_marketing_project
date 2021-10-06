@@ -14,6 +14,7 @@
 			$_SESSION['id'] = $data['u_id'];
 			$_SESSION['email'] = $data['u_email'];
           	header("location:main_page.php");	
+			//echo "<script>alert('Login Successfully')</script>";
 		}else{
 			echo "<script>alert('Login Failed')</script>";		
 		}

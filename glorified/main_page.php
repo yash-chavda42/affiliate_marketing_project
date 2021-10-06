@@ -212,7 +212,7 @@
 
 						<div class="slick-wrapper">
 							<div class="slick-slide-in">						
-								<div class="atf-single-home atf-hero-area" style="background-image: url(); background-size:cover; background-position: center center;">
+							<div class="atf-single-home atf-hero-area" style="background-image: url(assets/img/banner/3.jpg);  background-size:cover; background-position: center center;">
 									<div class="atf-home-overlay">
 										<div class="container">
 											<div class="row atf-single-slide-sm2 atf-align-items-details align-items-center atf-single-text justify-content-center">
@@ -227,12 +227,15 @@
 			                    	                        //session_start();
             			            	                    if(isset($_SESSION['id'])){
 																echo "<a href='product1.html' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
-                                            				}else{
+																echo "<a href='giveadd.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+
+															}else{
 																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
-                                            				}
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+
+															}
                                             			?>
 
-														<a href="#" class="page-scroll atf-themes-btn">Give Ad <i class="fa fa-angle-right"></i></a>
 													</div>
 												</div><!--- END COL -->
 											</div><!--- END ROW -->
@@ -253,8 +256,18 @@
 													<p class="pr-lg-5"> A Collection of variety of products ranging from different prices</p>
 													<!-- Main-btn -->
 													<div class="atf-main-btn mt-3"> 
-														<a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364" class="page-scroll atf-themes-btn mr-4"> See products<i class="fa fa-angle-right"></i></a>
-														<a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364" class="page-scroll atf-themes-btn">Order Now <i class="fa fa-angle-right"></i></a>
+													<?php
+			                    	                        //session_start();
+            			            	                    if(isset($_SESSION['id'])){
+																echo "<a href='product1.html' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+																echo "<a href='giveadd.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+
+															}else{
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+
+															}
+                                            			?>														
 													</div>
 												</div><!--- END COL -->
 											</div><!--- END ROW -->
@@ -275,8 +288,17 @@
 													<p class="pr-lg-5"> A Collection of variety of products ranging from different prices</p>
 													<!-- Main-btn -->
 													<div class="atf-main-btn mt-3"> 
-														<a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364" class="page-scroll atf-themes-btn mr-4">See Products <i class="fa fa-angle-right"></i></a>
-														<a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364" class="page-scroll atf-themes-btn">Order Now <i class="fa fa-angle-right"></i></a>
+													<?php
+			                    	                        //session_start();
+            			            	                    if(isset($_SESSION['id'])){
+																echo "<a href='product1.html' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+																echo "<a href='giveadd.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+                                            				}else{
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+																echo "<a href='signin1.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
+
+                                            				}
+                                            			?>	
 													</div>
 												</div><!--- END COL -->
 											</div><!--- END ROW -->
@@ -521,7 +543,7 @@
 								<div class="atf-footer-con">
 									<ul class="atf-list-menu">
 										<!---<li><a href="#"><i class="fas fa-angle-right mr-2"></i>Our Terms</a></li>--->
-										<li><a href="contact.html"><i class="fas fa-angle-right mr-2"></i>Contact Us</a></li>
+										<li><a href="contact.php"><i class="fas fa-angle-right mr-2"></i>Contact Us</a></li>
 										
 										<!--<li><a href="#"><i class="fas fa-angle-right mr-2"></i>Our News</a></li>-->
 									</ul>
