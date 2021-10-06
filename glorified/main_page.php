@@ -24,13 +24,13 @@
 				$mail->isSMTP();                                            //Send using SMTP
 				$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 				$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-				$mail->Username   = 'demophp3@gmail.com';                     //SMTP username
-				$mail->Password   = 'demo123php3';                               //SMTP password
+				$mail->Username   = 'yourstore1010@gmail.com';                     //SMTP username
+				$mail->Password   = 'yourstore@thriwin';                               //SMTP password
 				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
 				$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 				//Recipients
-				$mail->setFrom('demophp3@gmail.com', 'yn');
+				$mail->setFrom('yourstore1010@gmail.com', 'ys');
 				$mail->addAddress($email, 'yash');     //Add a recipient
 				
 
@@ -59,7 +59,7 @@
 				}
 				
 				$mail->send();
-				//echo 'Message has been sent';
+				echo 'Message has been sent';
 			} catch (Exception $e) {
 				echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 			}header("location:main_page.php");		
@@ -135,8 +135,8 @@
 							<div class="col-lg-8 col-md-8">
 								<div class="atf-top-header-in wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
 									<ul class="atf-top-header-list">
-										<li><i class="fas fa-envelope"></i>Email: <a href="#">sample@gmail.com</a></li>
-										<li><i class="fas fa-phone-volume"></i>Contact: <a href="#">123-456-7890 </a></li>
+										<li><i class="fas fa-envelope"></i>Email: <a href="#">yourstore1010@gmail.com</a></li>
+										<li><i class="fas fa-phone-volume"></i>Contact: <a href="#">9727622124</a></li>
 									</ul>
 								</div>
 							</div><!--- END COL -->
@@ -166,7 +166,7 @@
 							<div class="atf-main-header-left">
 								<!--<a class="atf-site-branding atf-white-logo" href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>-->
 								<!---<a class="atf-site-branding atf-white-logo" href="index.html">AFFILIATE@EASE</a>--->
-								<a style="font-size: 40px;" href="index.html">Affiliate@EASE</a>
+								<a style="font-size: 40px;" href="index.html">YourStore</a>
 
 							</div>
                             <!-- MOBILE VIEW 
@@ -189,9 +189,10 @@
 												<li><a href="contact.html">Promote</a></li>
 												<li><a href="error.html">Services</a></li>
 												<li><a href="blog.html">Blogs</a></li>
+												<li><a href="blog.html">Forgot Password</a></li>
 											</ul>
 										</li>
-										<li><a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364">Learn</a></li>
+										<li><a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364">Give Ad</a></li>
 									</ul><!--- END NAV -->
 								</div>
 							</div><!--- END MAIN HEADER RIGHT -->
@@ -231,7 +232,7 @@
                                             				}
                                             			?>
 
-														<a href="#" class="page-scroll atf-themes-btn">Order Now <i class="fa fa-angle-right"></i></a>
+														<a href="#" class="page-scroll atf-themes-btn">Give Ad <i class="fa fa-angle-right"></i></a>
 													</div>
 												</div><!--- END COL -->
 											</div><!--- END ROW -->
@@ -271,7 +272,7 @@
 												<div class="col-xl-6 col-lg-6 col-12 text-center atf-single-details ">
 													<h5 class="mb-0 d-block d-lg-block text-white">Trending Now</h5>
 													<h2 class="mb-0 d-block d-lg-block"> Best Promo Offer Chair Your Collection.</h2>
-													<p class="pr-lg-5">A Theme for Woocomarce, E-commerce, Business, Bootstrap 5, Product, Sell and for Cart etc.</p>
+													<p class="pr-lg-5"> A Collection of variety of products ranging from different prices</p>
 													<!-- Main-btn -->
 													<div class="atf-main-btn mt-3"> 
 														<a href="https://www.templatemonster.com/website-templates/al-majid-website-template-152091.html?_gl=1*1ley0u6*_ga*NDMyOTM1NTcxLjE2MTAxOTczNjQ.*_ga_FTPYEGT5LY*MTYxMDI4NzgyNS4zLjAuMTYxMDI4NzgzMS41NA..&_ga=2.145900727.2005536284.1610210101-432935571.1610197364" class="page-scroll atf-themes-btn mr-4">See Products <i class="fa fa-angle-right"></i></a>
@@ -303,9 +304,9 @@
 					<div class="row">
 						<div class="col-xl-7 col-lg-6 col-12 text-left"> 
 							<div class="atf-special-content atf-section-title  mx-auto my-auto">	
-								<h4 class="mb-2">Get 30%  Discount </h4>
+								<h4 class="mb-2">Get Great Discounts...  </h4>
 								<h2>Best Promo Offer For Your</h2>
-								<p class="pr-lg-5">Lorem elementum Sed congue nisl dolorSed congue nisl dolor Lorem elementum Sed congue nisl dolorSed eget augue Pellentesque sollicitudin efficitur, mattis dui vitae, sollicitudin nisl. </p>	
+								<p class="pr-lg-5">Grab the best product offers approaching to you within no time and get fantastic discounts on the products you purchase. The product ranges from very low price to affordable so that customers can make better choice.</p>	
 								
 								<h4 class="mt-5">Expire On</h4>															
 								<div id="countdown" class="text-center"></div>	
@@ -341,7 +342,7 @@
 									</div>
 									<div class="atf-service-content">
 										<h3>Free Shipping</h3>
-										<p>Lorem elementum Sed congue nisl dolorSed congue nisl dolor Lorem Sed congue nisl dolorSed.</p>
+										<p>There will not be any charges taken on the order of any product from user if product is purchased from here.</p>
 									</div>
 								</div>
 							</div>   
@@ -355,7 +356,7 @@
 									</div>
 									<div class="atf-service-content">
 										<h3>24/7 support</h3>
-										<p>Lorem elementum Sed congue nisl dolorSed congue nisl dolor Lorem Sed congue nisl dolorSed.</p>
+										<p>Website provides support all time to the users and can reach out to us for any query through Contact Us page.</p>
 									</div>
 								</div>
 							</div>   
@@ -368,8 +369,8 @@
 										<i class="fas fa-money-bill-alt"></i>
 									</div>
 									<div class="atf-service-content">
-										<h3>Secure Payment</h3>
-										<p>Lorem elementum Sed congue nisl dolorSed congue nisl dolor Lorem Sed congue nisl dolorSed.</p>
+									<h3>Versatality</h3>
+										<p>Product of all types are available at affordable rates so that customers can make better choice.</p>
 									</div>
 								</div>
 							</div>   
@@ -488,7 +489,7 @@
 									<ul class="pr-lg-5">
 										<li>Marwadi University, Morbi Highway, Rajkot Gujarat, India.</li>
 										<li>(+91) 9727622124 <br> (+91) 9574424242</li>
-										<li>sample@gmail.com</li>
+										<li>yourstore1010@gmail.com</li>
 									</ul>
 								</div>
 							</div><!--- END COL -->
