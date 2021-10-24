@@ -166,7 +166,7 @@
 							<div class="atf-main-header-left">
 								<!--<a class="atf-site-branding atf-white-logo" href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>-->
 								<!---<a class="atf-site-branding atf-white-logo" href="index.html">AFFILIATE@EASE</a>--->
-								<a style="font-size: 40px;" href="index.html">YourStore</a>
+								<a style="font-size: 40px;" href="main_page.php">YourStore</a>
 
 							</div>
                             <!-- MOBILE VIEW 
@@ -226,7 +226,7 @@
 														<?php
 			                    	                        //session_start();
             			            	                    if(isset($_SESSION['id'])){
-																echo "<a href='product1.html' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
+																echo "<a href='product1.php' class='page-scroll atf-themes-btn mr-4'>See Products<i  class='fa fa-angle-right'></i></a>";
 																echo "<a href='giveadd.php' class='page-scroll atf-themes-btn mr-4'>Give Ad<i  class='fa fa-angle-right'></i></a>";
 
 															}else{

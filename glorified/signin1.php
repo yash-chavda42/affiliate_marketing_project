@@ -5,20 +5,35 @@
     if(isset($_POST['submit'])){
         $email=$_POST['l_email'];
 		$password=md5($_POST['l_password']);
+		
 		$result = mysqli_query($con,"select * from signup_table where u_email='{$email}' and u_password='{$password}'") 
 		or die(mysqli_error($con));
 		$num_rows = mysqli_num_rows($result);
 		$data = mysqli_fetch_array($result);
+		
+		$result2 = mysqli_query($con,"select * from admin where a_email='{$email}' and a_password='{$password}'") 
+		or die(mysqli_error($con));
+		$num_rows2 = mysqli_num_rows($result2);
+		$data2 = mysqli_fetch_array($result2);
+		
 		if($num_rows>0){
 			echo "<script>alert('Login Successfully')</script>";	
 			$_SESSION['id'] = $data['u_id'];
 			$_SESSION['email'] = $data['u_email'];
           	header("location:main_page.php");	
 			//echo "<script>alert('Login Successfully')</script>";
+		}else if($num_rows2>0){
+			echo "<script>alert('Welcome to Admin Page')</script>";
+			$_SESSION['admin'] = $data2['a_email'];
+          	header("location:admin.php");	
+			
 		}else{
-			echo "<script>alert('Login Failed')</script>";		
-		}
+				echo "<script>alert('Login Failed')</script>";
+			}
+					
+		
 	}
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
